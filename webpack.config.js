@@ -2,10 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const path = require("path");
-const webpack = require("webpack");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-
 module.exports = {
   entry: "./src/index.js", // the main JavaScript file of the app/project
   output: {
@@ -33,7 +29,7 @@ module.exports = {
     hot: true, // refresh the browser when changes are saved
     open: true, // open the app/project in the browser when the server starts
     port: 8000, // use this port for the server
-    host: "0.0.0.0", // server is accessible externally
+    // host: "0.0.0.0", // server is accessible externally
     historyApiFallback: true, //serve a previous page on a 404 error
     watchContentBase: true, // watch for changes to static files
   },
