@@ -9,6 +9,6 @@ Run `npm install`
 Then run `npm start`
 
 
-## Instructions
+## Contributers
 
 Contributers: Anna, Cindy George and Jamie
