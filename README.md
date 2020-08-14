@@ -1,10 +1,8 @@
-# React Boilerplate
+# Quiz App
 
-## Run Instructions
+Quiz App made using React and Reduz
 
-- Fork repo
-- Change App.js intial render as desired
-- Clone contents of fork into desired new repo
-- Clone new repo to machine
-- In new repo run `npm install`
-- In new repo run `npm start`
+## Instructions
+
+Run `npm install`
+Then run `npm start`
