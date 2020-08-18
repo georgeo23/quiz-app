@@ -3,7 +3,8 @@ import BackButton from '../components/BackButton.js';
 import { connect } from 'react-redux';
 import { getQuizData } from '../Actions/Actions.js'
 import { Link, withRouter} from 'react-router-dom';
-import Questions from './Questions.js'
+import Question from './QuestionPage.js'
+
 class Play extends React.Component {
     constructor() {
         super();
