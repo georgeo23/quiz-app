@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { nextQuestion } from '../Pages/QuestionPage.js'
+import { nextQuestion } from '../Actions/Actions.js'
+import { connect } from 'react-redux'
 
-// const Button = ({ answer }) => {
-//     return (
-//    <button >{answer}</button>
-//     )}
+
 
 class Question extends Component {
     constructor() {
@@ -13,59 +11,68 @@ class Question extends Component {
             score: 0
     });
     
-    // this.valueChange = this.valueChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAnswer = this.handleAnswer.bind(this);
-    this.doSomething = this.doSomething.bind(this)
+    this.handleNextQuestion = this.handleNextQuestion.bind(this);
+
 }
     componentDidMount = () => console.log(this.props)
      
 
-// Score
-// go to next question
 
+
+    showNextButton = () => {
+        document.getElementById('nextq').style = "visibility: visible"
+    }
 
     handleAnswer = (selectedAnswer) => {
             console.log(selectedAnswer)
-           if (selectedAnswer === this.props.correctAnswer)  {
-            //    return <p>CORRECT</p>
+           if (selectedAnswer === this.props.question.correct_answer)  {
             console.log('correct')
                 this.setState({score: ++this.state.score})
-            //    this.setState(prevState => ({score: ++prevState.score}))
+                //REDUX STORE WITH SCORE
                console.log(this.state.score)
+               this.showNextButton()
            } else {
-            //    return  <p>INCORRECT</p>
             console.log('incorrect')
+            this.showNextButton()
            }
 
     };
     
-    doSomething = () => {
-        console.log("hello")
+
+    handleNextQuestion = () => {
+              
+       this.props.nextQuestion()
+        //set state of visibility for nextq button
+        document.getElementById('nextqq').style.visibility = "hidden"
     }
-   
+      
     render() {
-        const shuffledAnswer = [this.props.correctAnswer, ...this.props.incorrectAnswers].sort(() => Math.random() - 0.5);
-
-
-
+        const shuffledAnswer = [this.props.question.correct_answer, ...this.props.question.incorrect_answers].sort(() => Math.random() - 0.5);
         
         return (
             <div>
        
-                    <h1>Q{this.props.currentQuestion + 1}</h1>
+                    <h1>Q{this.props.currentQuestionID + 1}</h1>
                     <h1>Players: {this.props.players}</h1>
-                    <h1 dangerouslySetInnerHTML={{ __html: this.props.question }}></h1>
+                    <h1 dangerouslySetInnerHTML={{ __html: this.props.question.question }}></h1>
 
                 <button onClick={() => this.handleAnswer(shuffledAnswer[0])} >{shuffledAnswer[0]}</button> 
                 <button onClick={() => this.handleAnswer(shuffledAnswer[1])} >{shuffledAnswer[1]}</button> 
                 <button onClick={() => this.handleAnswer(shuffledAnswer[2])} >{shuffledAnswer[2]}</button> 
                 <button onClick={() => this.handleAnswer(shuffledAnswer[3])} >{shuffledAnswer[3]}</button> 
+                <button onClick={this.handleNextQuestion} id="nextq" style={{visibility: "hidden"}} >NEXT QUESTION</button>
+                <h1 id="nextqq" style={{visibility: "hidden"}} >NEXT QUESTION</h1>
+              
             </div>
  
         )
     }
 }
+const mSTP = state => ({
+    players: state.players,
+    currentQuestionID: state.currentQuestionID,
+    score: state.score
+})
 
-
-export default Question;
+export default connect(mSTP, { nextQuestion }) (Question);
