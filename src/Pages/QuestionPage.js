@@ -13,6 +13,7 @@ class QuestionPage extends React.Component {
         // console.log(keys)
         
         let result = JSON.stringify(results)
+        console.log(result[0])
         let convert = result.replace(/&#039/g, "").replace(/&quot/g, "").replace(/&/g, "").replace(/;/g, '').replace(/Ex;/g, '').replace(/&rsquos/g, '').replace(/&ldquo/g, '').replace(/&shy;/g, '')
 
         let newResult = JSON.parse(convert);
