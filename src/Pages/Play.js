@@ -20,23 +20,13 @@ class Play extends React.Component {
         this.retrieveQuiz = this.retrieveQuiz.bind(this);
   
     }
-
-    // redirect = () => {
-    //     this.setState({ redirect: true})
-
-    // }
-
-    // history = useHistory();
  
     async retrieveQuiz(e){
          e.preventDefault()
-        // console.log(this.state)
         this.state.questions = this.state.questions * this.state.players
         console.log(this.state.questions)
        this.props.getQuizData(this.state);
-        // console.log(data)
-        this.props.history.push('/questions');
-        
+        this.props.history.push('/questions');  
     }
     
      onResetClick(e) {
@@ -46,22 +36,16 @@ class Play extends React.Component {
         this.setState({state: this.state})
         this.state.userInput = ""
 
-        document.getElementById('quizform').reset();
-        
+        document.getElementById('quizform').reset();  
     }
-
 
      handleInput(e) {
         e.preventDefault()
         this.setState({[e.target.name]: e.target.value})
-    }
-
-    // componentDidMount = () => {this.props.getQuizData(this.state)}  
+    }  
     
     render() {
         
-     
-
         return (
             <div>
                 
@@ -123,10 +107,6 @@ class Play extends React.Component {
                     
                     <input type="submit" value="Load Quiz"></input>
                 </form>
-
-               {/* <h1>{this.props.data}</h1> */}
-           
-               
              
             </div>
         )
