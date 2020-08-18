@@ -44,7 +44,7 @@ class Question extends Component {
               
        this.props.nextQuestion()
         //set state of visibility for nextq button
-        document.getElementById('nextqq').style.visibility = "hidden"
+        document.getElementById('nextq').style.visibility = "hidden"
     }
       
     render() {
@@ -62,7 +62,7 @@ class Question extends Component {
                 <button onClick={() => this.handleAnswer(shuffledAnswer[2])} >{shuffledAnswer[2]}</button> 
                 <button onClick={() => this.handleAnswer(shuffledAnswer[3])} >{shuffledAnswer[3]}</button> 
                 <button onClick={this.handleNextQuestion} id="nextq" style={{visibility: "hidden"}} >NEXT QUESTION</button>
-                <h1 id="nextqq" style={{visibility: "hidden"}} >NEXT QUESTION</h1>
+                
               
             </div>
  
