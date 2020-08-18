@@ -2,7 +2,7 @@ export const loading = (p) => ({type: "LOAD_PLAYER", payload: p})
 
 export const loadQuiz = (data) => ({
     type: 'LOAD_QUIZ',
-    payload: data
+    payload: [...data]
 })
 
 export const getQuizData = (origData) => {
