@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
-import { nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 } from '../Actions/Actions.js'
+import { data, nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 } from '../Actions/Actions.js'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+
 
 class Question extends Component {
     constructor() {
@@ -8,8 +10,7 @@ class Question extends Component {
         this.state = {
             currentPlayer: 'Player 1'
         };
-    
-    // this.handleAnswer = this.handleAnswer.bind(this);
+
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
     this.scoreChecker = this.scoreChecker.bind(this);
 }
@@ -59,8 +60,11 @@ class Question extends Component {
     } 
 
     handleNextQuestion = (player) => {
+        
         console.log(`hello ${player}`)
-        console.log(this.props.length)
+        console.log(this.props.data.length)
+        console.log(this.props.currentQuestionID)
+    
         if (player === `Player 1`) {
             this.setState({currentPlayer: `Player 2`})
         } else if (player === "Player 2" && this.props.noOfPlayers >= 3) {
@@ -69,14 +73,17 @@ class Question extends Component {
             this.setState({currentPlayer: "Player 4"})
         } else if  (player === "Player 4" && this.props.noOfPlayers >= 5){
             this.setState({currentPlayer: "Player 5"})
-        } else {
+        } else if (this.props.currentQuestionID + 1 >= this.props.data.length) {
+            console.log("QUIZ FINISHED")
+            this.props.history.push('/result')
+        }
+        else {
                 this.setState({ currentPlayer: `Player 1` })
                 }
         
        this.props.nextQuestion()
        
         document.getElementById('nextq').style.visibility = "hidden"
-        // while (this.props.currentQuestionID != this.props.question.length)
     }
       
     render() {
@@ -84,8 +91,7 @@ class Question extends Component {
         
         return (
             <div>
-                    {/* have currentQuestion / total questions  */}
-                    <h1>Q{this.props.currentQuestionID + 1}</h1>
+                    <h1>Q{this.props.currentQuestionID+1}/{this.props.data.length}</h1>
                     <h1>{this.state.currentPlayer} of {this.props.noOfPlayers}</h1>
                     <h1 dangerouslySetInnerHTML={{ __html: this.props.question.question }}></h1>
 
@@ -105,4 +111,4 @@ const mSTP = state => ({
     currentQuestionID: state.currentQuestionID,
 })
 
-export default connect(mSTP, { nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 }) (Question);
+export default withRouter(connect(mSTP, { data, nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 }) (Question));
