@@ -16,10 +16,7 @@ class QuestionPage extends React.Component {
     
 const mSTP = state => ({
     data: state.data,
-    players: state.players,
-    score: state.score,
     currentQuestionID: state.currentQuestionID
-
 })
 
 export const mDTP = dispatch => ({
