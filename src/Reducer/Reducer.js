@@ -19,7 +19,7 @@ const Reducer = (state = initialState, action) => {
         case 'NEXT_QUESTION':
             return { ...state, currentQuestionID: state.currentQuestionID+= 1 }
         case 'RESET_GAME':
-            return { ...state }
+            return { data: [], noOfPlayers: 0, players: [{name: "Player 1", score: 0}, {name: "Player 2", score: 0}, {name: "Player 3", score: 0}, {name: "Player 4", score: 0}, {name: "Player 5", score: 0}], currentQuestionID: 0  }
         default:
             return state;
     }
