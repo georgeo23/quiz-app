@@ -6,7 +6,62 @@ import { connect } from 'react-redux'
 class  Result extends Component {
     // componentDidMount = () => this.drawResults()
 
-     drawResults = () => <li>{this.props.players[0].name} scored {this.props.players[0].score}</li>
+    // https://blog.cloudboost.io/for-loops-in-react-render-no-you-didnt-6c9f4aa73778
+    
+     drawResults = () => {
+         console.log(typeof this.props.noOfPlayers) 
+         let numPlayers = parseInt(this.props.noOfPlayers)
+         console.log(typeof numPlayers)
+         console.log(numPlayers)
+
+
+         
+         for (let i = 0; i < numPlayers; i++) {
+             console.log(i)
+             
+             return  (
+                 <div>
+                     <ul>
+                         {/* <li key={id}>{item[i].name} scored {item[i].score}</li> */}
+                         <li>{this.props.players[i].name} scored {this.props.players[i].score}</li>
+                         
+                    </ul>
+                </div>
+             )
+           
+         }
+         
+    
+    }
+    // createResults = () => {
+    //         let leaderboard = []
+    //         let numPlayers = parseInt(this.props.noOfPlayers)
+            
+    //         let children = []
+    //         for (let i = 0; i < numPlayers; i++) {
+    //             children.push(<li>{this.props.players[i].name} scored {this.props.players[i].score}</li>)
+    //         }
+    //         console.log(children)
+    //         // leaderboard.push({children})
+    //         return leaderboard
+            
+    // }
+    
+
+    // displayResults = () => {
+    //     let resultsArr = []
+    //     let numPlayers = parseInt(this.props.noOfPlayers)
+    //     for(let i = 0; i < numPlayers; i++) {
+    //         let children = []
+    //     for(let j = 0; j < numPlayers+1; i++) {
+    //         children.push(<li>{this.props.players[j+1].name} scored {this.props.players[j+1].score}</li> )
+    //     }
+    //         resultsArr.push(<ul>{children}</ul>)
+    //         // <ul>   
+    //         //      <li>{this.props.players[i].name} scored {this.props.players[i].score}</li>        
+    //         // </ul>
+    //     }
+    // }
     //   {for (let i = 0; i < this.props.noOfPlayers; i++) <li>{this.props.players[i].name} scored {this.props.players[i].score}</li>}
          
         
@@ -52,47 +107,48 @@ class  Result extends Component {
         });
         console.log(sortPlayers)
 
-        // const totalQuestions = this.props.data.length / this.props.noOfPlayers; //need to bring in noOfPlayers
         console.log(this.props.data)
 
         console.log(playersArray.length) // 5
 
-        // if (this.props.noOfPlayers < playersArray.length) {
-        //     return <ul>
-        //         <li>{this.props.players}</li>
-        //     </ul>
-        // }
 
         // const getResults = () => {for (let i = this.props.noOfPlayers; i < playersArray; i++) {
         //     // console.log('hello')
         //     <li>{playersArray[i]}</li>
         // }
         // }
+        
 
+        const listPlayers = () => {if (this.props.players.score > 0) {
+                <li>{this.props.player} scored {this.props.players.score}</li>
+        } else {
+                <li></li>
+        }}
+
+            
+        //  this.props.players.score > 0 ? this.props.players.map((item, idx) => <li key={idx}>{item.name} scored {item.score}</li>) : ;  
         
-        // this.props.score.map(p => <li>Player{p}</li> 
+        const listAllPlayers = this.props.players.map((item, idx) => <li key={idx}>{item.name} scored {item.score} </li>);
         
-        // const listPlayers = this.props.players.length === this.props.noOfPlayers ? 
+        console.log(this.props.players.name) // 0
+        console.log(this.props.noOfPlayers) // 5
+        console.log(playersArray.length)
         
-        
+
         return (
             <div>
                 <h1>Leaderboard</h1>
                 {/* {getResults()} */}
                
                 <ul>
-                    {/* {this.drawResults()} */}
-
-                    {console.log(this.props.players)}
-            
-                    {
-                        this.props.players.map((item, idx) => <li key={idx}>{item.name} scored {item.score}</li>)   
-                    }
-
+                    {this.drawResults()}
+                    
+                   
+                     
                 </ul>
 
                 <Link to='/play' className='welcomebtn' onClick={() => this.props.resetGame()}>New Game</Link>
-                <Link to='/' className='welcomebtn'>Exit</Link>
+                <Link to='/' className='welcomebtn' onClick={() => this.props.resetGame()}>Exit</Link>
             </div>
         )
     }
@@ -107,11 +163,6 @@ const mSTP = state => ({
     // currentQuestionID: state.currentQuestionID
 
 })
-
-// export const mDTP = dispatch => ({
-//     addScore: () => dispatch({type: 'ADD_SCORE', payload: 1}),
-//     nextQuestion: () => dispatch({type: 'NEXT_QUESTION'})    
-// })
 
 
 export default connect(mSTP, { players, score, addScore, resetGame }) (Result);
