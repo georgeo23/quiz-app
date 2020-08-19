@@ -2,15 +2,14 @@ import React from 'react';
 import BackButton from '../components/BackButton.js';
 import { connect } from 'react-redux';
 import { getQuizData } from '../Actions/Actions.js'
-import { Link, withRouter} from 'react-router-dom';
-import Question from './QuestionPage.js'
+import { withRouter} from 'react-router-dom';
 
 class Play extends React.Component {
     constructor() {
         super();
         this.state={
             players: "2",
-            questions: "10",
+            questions: "1",
             category: "9",
             difficulty: "easy",
             userInput: ""
@@ -18,7 +17,6 @@ class Play extends React.Component {
         this.handleInput = this.handleInput.bind(this);
         this.onResetClick = this.onResetClick.bind(this);
         this.retrieveQuiz = this.retrieveQuiz.bind(this);
-  
     }
  
     async retrieveQuiz(e){
@@ -73,7 +71,6 @@ class Play extends React.Component {
                         <option value="10">10 Questions</option>
                 </select>
                     <label htmlFor="category">Category</label>
-                    {/* <input type="text" name="category" value={this.state.category} onChange={this.handleInput}></input> */}
                     <select name="category" value={this.state.category} onChange={this.handleInput}>
                         <option value="9">General Knowledge</option>
                         <option value="10">Books</option>
@@ -110,8 +107,9 @@ class Play extends React.Component {
              
             </div>
         )
+    }
 }
-}
+
 const mSTP = state => ({
     data: state.data,
     players: state.players,
