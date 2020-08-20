@@ -9,7 +9,7 @@ class QuestionPage extends React.Component {
         return (
             <div>
                 {this.props.data.length > 0 ? <Question question={this.props.data[this.props.currentQuestionID]} data={this.props.data}/> : <p>Load results</p>}
-                {this.props.data.length > 0 && this.props.currentQuestionID === this.props.data.length ? <p>finished quiz</p> : <p>QUIZ</p>}
+                {this.props.data.length > 0 && this.props.currentQuestionID === this.props.data.length ? <p>finished quiz</p> : <p></p>}
             </div>
         )
     }

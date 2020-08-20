@@ -1,0 +1,75 @@
+#questionCounter {
+    font-size: 30px;
+    /* position: fixed; */
+    top: 15px;
+    left:15px;
+    letter-spacing: 0.1em;
+    font-weight: 100;
+
+}
+
+#playersCounter {
+    font-size: 30px;
+    letter-spacing: 0.1em;
+    font-weight: 100;
+
+
+}
+
+#questionText {
+    font-size: 30px;
+    letter-spacing: 0.1em;
+    font-weight: 100;
+
+}
+
+#answerButtons {
+    margin-bottom: 0;
+}
+
+
+
+#answerButtons > #answerBtn1, #answerBtn2, #answerBtn3, #answerBtn4 {
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: solid 0.5px #ffffff;
+    background-color: #67da69;
+    cursor: pointer;
+    outline: none;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    /* text-transform: uppercase; */
+    margin: auto 10px;
+    font-weight: 100;
+
+}
+
+#answerButtons > #answerBtn1:hover, #answerBtn2:hover, #answerBtn3:hover, #answerBtn4:hover{
+    background-color: #7fe080;
+}   
+#nextq {
+    padding: 10px 30px;
+    border-radius: 8px;
+    border: solid 0.5px #ffffff;
+    background-color: #67da69;
+    cursor: pointer;
+    outline: none;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0px 10px 0px 10px;
+}
+
+#nextq:hover {
+    background-color: #7fe080;
+}
+
+#correctAnswerh1 {
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 0.1em;
+    font-weight: 100;
+    font-style: italic;
+}
