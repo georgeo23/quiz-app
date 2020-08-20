@@ -3,6 +3,8 @@ import { nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPla
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
+import '../Styles/QuestionPage.css'
+
 
 class Question extends Component {
     constructor() {
@@ -14,12 +16,15 @@ class Question extends Component {
     this.handleNextQuestion = this.handleNextQuestion.bind(this);
     this.scoreChecker = this.scoreChecker.bind(this);
 }
-    componentDidMount = () => {document.getElementById('nextq').style = "visibility: hidden"; document.getElementById('correctAnswerh1').style = "visibility: hidden"}
+    componentDidMount = () => {
+        document.getElementById('nextq').style = "visibility: hidden";
+        document.getElementById('correctAnswerh1').style = "visibility: hidden";
+    }
      
     showNextButton = () => {
-              document.getElementById('nextq').style = "visibility: visible"
-            document.getElementById('correctAnswerh1').style = "visibility: visible"
-           }
+        document.getElementById('nextq').style = "visibility: visible";
+        document.getElementById('correctAnswerh1').style = "visibility: visible";
+    }
 
     scoreChecker = (selectedAnswer, player) => {
   
@@ -87,16 +92,19 @@ class Question extends Component {
         
         return (
             <div>
-                    <h1>Q{this.props.currentQuestionID+1}/{this.props.data.length}</h1>
-                    <h1>{this.state.currentPlayer} of {this.props.noOfPlayers}</h1>
-                    <h1 dangerouslySetInnerHTML={{ __html: this.props.question.question }}></h1>
-            
-                <button id="answerBtn1" dangerouslySetInnerHTML={{ __html: shuffledAnswer[0] }} onClick={() => this.scoreChecker(shuffledAnswer[0], this.state.currentPlayer)} ></button> 
-                <button id="answerBtn2" dangerouslySetInnerHTML={{ __html: shuffledAnswer[1] }} onClick={() => this.scoreChecker(shuffledAnswer[1],  this.state.currentPlayer)} ></button> 
-                <button id="answerBtn3" dangerouslySetInnerHTML={{ __html: shuffledAnswer[2] }} onClick={() => this.scoreChecker(shuffledAnswer[2],  this.state.currentPlayer)} ></button> 
-                <button id="answerBtn4" dangerouslySetInnerHTML={{ __html: shuffledAnswer[3] }} onClick={() => this.scoreChecker(shuffledAnswer[3],  this.state.currentPlayer)} ></button> 
-                <button id="nextq" onClick={() => this.handleNextQuestion(this.state.currentPlayer)}>NEXT QUESTION</button>
-                <h1 dangerouslySetInnerHTML={{ __html: `The correct answer was ${this.props.question.correct_answer}` }}id="correctAnswerh1"></h1>
+                <h1 id="questionCounter">Q{this.props.currentQuestionID+1}/{this.props.data.length}</h1>
+                <h1 id="playersCounter">{this.state.currentPlayer} of {this.props.noOfPlayers}</h1>
+                <h1 id="questionText" dangerouslySetInnerHTML={{ __html: this.props.question.question }}></h1>
+                {/* Answer Buttons */}
+                <div id="answerButtons">
+                    <button id="answerBtn1" dangerouslySetInnerHTML={{ __html: shuffledAnswer[0] }} onClick={() => this.scoreChecker(shuffledAnswer[0], this.state.currentPlayer)} ></button> 
+                    <button id="answerBtn2" dangerouslySetInnerHTML={{ __html: shuffledAnswer[1] }} onClick={() => this.scoreChecker(shuffledAnswer[1],  this.state.currentPlayer)} ></button> 
+                    <button id="answerBtn3" dangerouslySetInnerHTML={{ __html: shuffledAnswer[2] }} onClick={() => this.scoreChecker(shuffledAnswer[2],  this.state.currentPlayer)} ></button> 
+                    <button id="answerBtn4" dangerouslySetInnerHTML={{ __html: shuffledAnswer[3] }} onClick={() => this.scoreChecker(shuffledAnswer[3],  this.state.currentPlayer)} ></button><br/>
+                    <button id="nextq" onClick={() => this.handleNextQuestion(this.state.currentPlayer)}>NEXT QUESTION</button>
+                </div>
+
+                <h1 dangerouslySetInnerHTML={{ __html: `The correct answer was "${this.props.question.correct_answer}"` }}id="correctAnswerh1"></h1>
             </div>
  
         )

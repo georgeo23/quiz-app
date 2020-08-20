@@ -1,6 +1,9 @@
 import HowToPlay from "../../Pages/HowToPlay.js";
 import { shallow } from 'enzyme';
 
+import '../App.css';
+import '../Styles/HowToPlay.css';
+
 describe('HowToPlay', () => {
     let wrapper;
 

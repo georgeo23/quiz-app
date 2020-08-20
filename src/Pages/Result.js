@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 import { players, score,  addScore, resetGame } from '../Actions/Actions.js'
 import { connect } from 'react-redux'
+import '../App.css';
+import '../Styles/Results.css'
 
 class  Result extends Component {
        
@@ -73,12 +75,12 @@ class  Result extends Component {
        return (
            <main>
                 <div>
-                    <h1>Leaderboard</h1>
+                    <h1 id="leaderboardTitle">Leaderboard</h1>
                     {this.drawResults()}
 
                     {/* {this.getResults()} */}
-                    <Link to='/play' className='welcomebtn' onClick={() => this.props.resetGame()}><button>New Game</button></Link>
-                    <Link to='/' className='welcomebtn' onClick={() => this.props.resetGame()}> <button>Exit</button></Link>
+                    <Link to='/play' onClick={() => this.props.resetGame()}><button id="welcomeBtn">New game</button></Link>
+                    <Link to='/' onClick={() => this.props.resetGame()}><button className="welcomeBtn">Exit</button></Link>
                 </div>
             </main>
 
