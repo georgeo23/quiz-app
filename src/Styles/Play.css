@@ -1,0 +1,105 @@
+body {
+    
+}
+div {
+    padding-bottom: 50px;
+}
+.backBtn {
+    text-align: left;
+}
+
+.submissionForm {
+    text-align: left;
+    width: 40%;
+    display: inline;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #67da69;
+    border: solid 0.5px #ffffff;
+    border-radius: 0px 10px 10px 0px;
+    cursor: pointer;
+    color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 20px 26px;
+    z-index: 1;
+}
+.submissionForm:hover {
+    background-color: #7fe080;
+}
+
+.titleForm {
+    text-align: left;
+    width: 60%;
+    display: inline;
+    margin-top: 20px;
+    font-size: 20px;
+    background-color: #63b964;
+    border: solid 0.5px #ffffff;
+    border-radius: 10px 0px 0px 10px;
+    color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 20px 26px;
+}
+
+#submitBtn {
+    width: 20%;
+    display: inline;
+    /* margin-top: 30px; */
+    cursor: pointer;
+    border: solid 0.5px #ffffff;
+    font-size: 20px;
+    background-color: #67da69;
+    border-radius: 0px 10px 10px 0px;
+    color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 20px 26px;
+    outline: none;
+}
+#submitBtn:hover {
+    background-color: #7fe080;
+}
+
+#resetBtn {
+    width: 20%;
+    display: inline;
+    /* margin-top: 30px; */
+    cursor: pointer;
+    border: solid 0.5px #ffffff;
+    font-size: 20px;
+    background-color: #63b964;
+    border-radius: 10px 0px 0px 10px;
+    color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 20px 26px;
+    outline: none;
+}
+#resetBtn:hover {
+    background-color: #7fe080;
+}
+
+#titleForm1 {
+    display: inline;
+    font-size: 15px;
+    background-color: #63b964;
+    border: solid 0.5px #ffffff;
+    border-radius: 10px 0px 0px 10px;
+    color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 23px 20px;
+}
+#titleForm2 {
+    display: inline;
+    font-size: 15px;
+    background-color: #63b964;
+    border: solid 0.5px #ffffff;
+    border-radius: 10px 0px 0px 10px;
+    color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 23px 10px;
+}

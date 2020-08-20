@@ -28,7 +28,4 @@ describe('Result', () => {
        expect(component.find('button')).toHaveLength(2);
     })
 
-
-
-
 } )

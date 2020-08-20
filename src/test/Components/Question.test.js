@@ -26,6 +26,10 @@ describe('Question', () => {
         expect(button5).toHaveLength(5)
     })
 
+    test('it renders', () => {
+        expect(component.find('div')).toHaveLength(1)
+    })
+
 
     test('when a correct answer is clicked the score increases by 1', () => {
         const button = component.find('button')

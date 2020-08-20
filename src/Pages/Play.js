@@ -3,6 +3,10 @@ import BackButton from '../components/BackButton.js';
 import { connect } from 'react-redux';
 import { getQuizData } from '../Actions/Actions.js'
 import { withRouter} from 'react-router-dom';
+import '../App.css';
+import '../Styles/Play.css';
+import '../Styles/BackButton.css'
+
 
 class Play extends React.Component {
     constructor() {
@@ -17,12 +21,14 @@ class Play extends React.Component {
         this.handleInput = this.handleInput.bind(this);
         this.onResetClick = this.onResetClick.bind(this);
         this.retrieveQuiz = this.retrieveQuiz.bind(this);
+        this.onResetClick = this.onResetClick.bind(this);
+
     }
  
     async retrieveQuiz(e){
-         e.preventDefault()
+        e.preventDefault()
         this.state.questions = this.state.questions * this.state.players
-       this.props.getQuizData(this.state);
+        this.props.getQuizData(this.state);
         this.props.history.push('/questions');  
     }
     
@@ -33,6 +39,14 @@ class Play extends React.Component {
         this.setState({state: this.state})
         this.state.userInput = ""
 
+        document.getElementById('quizform').reset();  
+    }
+
+    onResetClick(e) { //WE DONT HAVE A REST BUTTON ANYMORE
+        e.preventDefault();
+        // e.target.reset();
+        // this.setState({state: this.state})
+        // this.state.userInput = ""
         document.getElementById('quizform').reset();  
     }
 
@@ -47,17 +61,19 @@ class Play extends React.Component {
             <div>
                 
                 <BackButton />
+                <h1>Design your quiz!</h1>
                 <form id="quizform" onSubmit={this.retrieveQuiz}>
-                    <label htmlFor="players">No. of Players</label>
+                    <label id="titleForm1" htmlFor="players">No. of Players</label>
                     
-                    <select name="players" value={this.state.players} onChange={this.handleInput}>
+                    <select className="submissionForm" name="players" value={this.state.players} onChange={this.handleInput}>
                         <option value="2">2 Players</option>
                         <option value="3">3 Players</option>
                         <option value="4">4 Players</option>
                         <option value="5">5 Players</option>
                     </select>
-                <label htmlFor="questions">No. of Questions</label>
-                <select name="questions" value={this.state.questions} onChange={this.handleInput}>
+                    <br/>
+                <label id="titleForm2" htmlFor="questions">No. of Questions</label>
+                <select className= "submissionForm" name="questions" value={this.state.questions} onChange={this.handleInput}>
                         <option value="1">1 Question</option>
                         <option value="2">2 Questions</option>
                         <option value="3">3 Questions</option>
@@ -69,8 +85,9 @@ class Play extends React.Component {
                         <option value="9">9 Questions</option>
                         <option value="10">10 Questions</option>
                 </select>
-                    <label htmlFor="category">Category</label>
-                    <select name="category" value={this.state.category} onChange={this.handleInput}>
+                <br/>
+                    <label className="titleForm" htmlFor="category">Category</label>
+                    <select className="submissionForm" name="category" value={this.state.category} onChange={this.handleInput}>
                         <option value="9">General Knowledge</option>
                         <option value="10">Books</option>
                         <option value="11">Film</option>
@@ -94,14 +111,17 @@ class Play extends React.Component {
                         <option value="31">Japanese Anime</option>
                         <option value="32">Cartoons</option>
                     </select>
-                    <label htmlFor="difficulty">Difficulty</label>
-                    <select name="difficulty" value={this.state.difficulty} onChange={this.handleInput}>
+                    <br/>
+                    <label className="titleForm" htmlFor="difficulty">Difficulty</label>
+                    <select  className="submissionForm" name="difficulty" value={this.state.difficulty} onChange={this.handleInput}>
                         <option value="easy">Easy</option>
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
                     </select>
-                    
-                    <input type="submit" value="Load Quiz"></input>
+                    <br/>
+                    <button id="resetBtn" onClick={this.onResetClick}>Reset</button>
+                    <input id="submitBtn" type="submit" value="Load Quiz"></input>
+                    {/* <button id="reset" onClick={this.onResetClick}>Reset</button> */}
                 </form>
              
             </div>

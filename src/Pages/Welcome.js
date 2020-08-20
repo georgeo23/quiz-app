@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css'
+import '../App.css';
+import '../Styles/Welcome.css';
+
 
 class Welcome extends Component {
  
@@ -9,8 +11,9 @@ class Welcome extends Component {
             <div>
 
                 <h1>Welcome to Quiz App!</h1>
-                <Link to='/play' className='welcomebtn'><button>Play</button></Link>
-                <Link to='/howto' className="welcomebtn"><button>How To Play</button></Link>
+                <Link to='/play' className='welcomebtn'>Play</Link>
+                <br/>
+                <Link to='/howto' className="welcomebtn">How To Play</Link>
 
             </div>
         )
