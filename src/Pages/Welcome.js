@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import '../App.css'
 
 class Welcome extends Component {
  
     render() {
         return (
             <div>
-                <h1 id="welcometext">Welcome to Quiz App!</h1>
-                <Link to='/play' className='welcomebtn'>Play</Link>
-                <Link to='/howto' className="welcomebtn">How To Play</Link>
+
+                <h1>Welcome to Quiz App!</h1>
+                <Link to='/play' className='welcomebtn'><button>Play</button></Link>
+                <Link to='/howto' className="welcomebtn"><button>How To Play</button></Link>
+
             </div>
         )
     }
