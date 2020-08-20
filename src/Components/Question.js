@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { data, nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 } from '../Actions/Actions.js'
+import { nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 } from '../Actions/Actions.js'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 
@@ -109,4 +109,4 @@ const mSTP = state => ({
     currentQuestionID: state.currentQuestionID,
 })
 
-export default withRouter(connect(mSTP, { data, nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 }) (Question));
+export default withRouter(connect(mSTP, { nextQuestion, addPlayerScore1, addPlayerScore2, addPlayerScore3, addPlayerScore4, addPlayerScore5 }) (Question));
