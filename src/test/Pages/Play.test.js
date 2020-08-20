@@ -4,7 +4,6 @@ describe('Play', () => {
     let component, form;
     let fakeEvent = { preventDefault: () => 'fake', target: {name: 'players', value: 3}}
     let preventDefault = { preventDefault: () => 'fake' }
-    let mockFunc = jest.fn()
 
     beforeEach(() => {
         component = shallow(<Play.WrappedComponent/>)
