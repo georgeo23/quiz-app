@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from 'react-router-dom';
-//Components
 import { HowToPlay, Welcome, Play, QuestionPage, Result } from './Pages';
 
 
@@ -8,7 +7,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div id="app">
         <Switch>
           <Route exact path='/' component={ Welcome } />
           <Route path='/howto' component={ HowToPlay } />
@@ -17,7 +16,7 @@ class App extends React.Component {
           <Route path='/result' component={ Result } />
         </Switch>
        
-      </>
+      </div>
     );
   }
 }

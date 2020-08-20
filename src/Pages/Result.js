@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 class  Result extends Component {
        
      drawResults = () => {
+
         console.log(this.props.noOfPlayers)
         console.log(this.props.players)
         let noOfPlayers = this.props.noOfPlayers
@@ -47,6 +48,7 @@ class  Result extends Component {
         return (
             <h1>No Quiz Results, please select a game from the Play menu</h1>
         )
+
     }
 }
 
@@ -67,6 +69,7 @@ class  Result extends Component {
     // }
 
 
+
     render(){
        
        return (
@@ -80,6 +83,7 @@ class  Result extends Component {
                     <Link to='/' className='welcomebtn' onClick={() => this.props.resetGame()}> <button>Exit</button></Link>
                 </div>
             </main>
+
         )
     }
 

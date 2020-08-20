@@ -22,7 +22,6 @@ class Play extends React.Component {
     async retrieveQuiz(e){
          e.preventDefault()
         this.state.questions = this.state.questions * this.state.players
-        console.log(this.state.questions)
        this.props.getQuizData(this.state);
         this.props.history.push('/questions');  
     }
