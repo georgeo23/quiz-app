@@ -9,20 +9,14 @@ class  Result extends Component {
     // https://blog.cloudboost.io/for-loops-in-react-render-no-you-didnt-6c9f4aa73778
     
      drawResults = () => {
-         console.log(typeof this.props.noOfPlayers) 
          let numPlayers = parseInt(this.props.noOfPlayers)
-         console.log(typeof numPlayers)
-         console.log(numPlayers)
 
-
-         
          for (let i = 0; i < numPlayers; i++) {
              console.log(i)
              
              return  (
                  <div>
                      <ul>
-                         {/* <li key={id}>{item[i].name} scored {item[i].score}</li> */}
                          <li>{this.props.players[i].name} scored {this.props.players[i].score}</li>
                          
                     </ul>
@@ -139,14 +133,9 @@ class  Result extends Component {
             <div>
                 <h1>Leaderboard</h1>
                 {/* {getResults()} */}
-               
                 <ul>
                     {this.drawResults()}
-                    
-                   
-                     
                 </ul>
-
                 <Link to='/play' className='welcomebtn' onClick={() => this.props.resetGame()}>New Game</Link>
                 <Link to='/' className='welcomebtn' onClick={() => this.props.resetGame()}>Exit</Link>
             </div>
