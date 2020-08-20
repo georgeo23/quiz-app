@@ -11,11 +11,9 @@ class Play extends React.Component {
             players: "2",
             questions: "1",
             category: "9",
-            difficulty: "easy",
-            userInput: ""
+            difficulty: "easy"
         };
         this.handleInput = this.handleInput.bind(this);
-        this.onResetClick = this.onResetClick.bind(this);
         this.retrieveQuiz = this.retrieveQuiz.bind(this);
     }
  
@@ -24,16 +22,6 @@ class Play extends React.Component {
         this.state.questions = this.state.questions * this.state.players
        this.props.getQuizData(this.state);
         this.props.history.push('/questions');  
-    }
-    
-     onResetClick(e) {
-        e.preventDefault();
-        e.target.reset();
-
-        this.setState({state: this.state})
-        this.state.userInput = ""
-
-        document.getElementById('quizform').reset();  
     }
 
      handleInput(e) {
@@ -50,7 +38,7 @@ class Play extends React.Component {
                 <form id="quizform" onSubmit={this.retrieveQuiz}>
                     <label htmlFor="players">No. of Players</label>
                     
-                    <select name="players" value={this.state.players} onChange={this.handleInput}>
+                    <select name="players" id="players" value={this.state.players} onChange={this.handleInput}>
                         <option value="2">2 Players</option>
                         <option value="3">3 Players</option>
                         <option value="4">4 Players</option>
@@ -109,11 +97,11 @@ class Play extends React.Component {
     }
 }
 
-const mSTP = state => ({
-    data: state.data,
-    players: state.players,
-    score: state.score,
-    currentQuestion: state.currentQuestion
+// const mSTP = state => ({
+//     data: state.data,
+//     players: state.players,
+//     score: state.score,
+//     currentQuestion: state.currentQuestion
 
-})
-export default withRouter (connect(mSTP, { getQuizData })(Play));
+// })
+export default withRouter (connect(null, { getQuizData })(Play));
