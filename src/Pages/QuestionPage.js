@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Question from '../Components/Question.js'
 
 class QuestionPage extends React.Component {
-    
+    // why is this a class component?
     render() {
 
         return (
@@ -20,6 +20,7 @@ const mSTP = state => ({
     currentQuestionID: state.currentQuestionID
 })
 
+// why does this need to be exported?
 export const mDTP = dispatch => ({
     addScore: () => dispatch({type: 'ADD_SCORE', payload: 1}),
     nextQuestion: () => dispatch({type: 'NEXT_QUESTION'})    

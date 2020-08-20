@@ -6,7 +6,8 @@ import { Provider } from 'react-redux'
 import store from './store';
 
 ReactDOM.render(
-    // <React.StrictMode>
+    // <React.StrictMode> 
+    // StrictMode is nice to catch bad practices!
         <BrowserRouter>
             <Provider store={store}>
                 <App />    

@@ -4,12 +4,17 @@ import { players, score,  addScore, resetGame } from '../Actions/Actions.js'
 import { connect } from 'react-redux'
 
 class  Result extends Component {
-       
+// I'm not convinced this needs to be a class Component
+
      drawResults = () => {
 
         console.log(this.props.noOfPlayers)
         console.log(this.props.players)
         let noOfPlayers = this.props.noOfPlayers
+
+        // this is incredibly repetitive. Why is this not simply an iteration over this.props.players?
+        // this.props.players.map((p, idx) => <li key={idx}>{p.name} scored {p.score}</li>) 
+
         if (noOfPlayers == 2) {
         return (
             <ul>
@@ -94,4 +99,5 @@ const mSTP = state => ({
     noOfPlayers: state.noOfPlayers
 })
 
+// players and score are not exported from Actions.js, what is being referred to here?
 export default connect(mSTP, { players, score, addScore, resetGame }) (Result);

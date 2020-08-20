@@ -13,4 +13,5 @@ const HowToPlay = ({ history }) => {
     )
 }
 
+// You don't need withRouter/history in this component as BackButton has them itself
 export default withRouter(HowToPlay);

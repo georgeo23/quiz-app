@@ -19,8 +19,9 @@ class Play extends React.Component {
         this.retrieveQuiz = this.retrieveQuiz.bind(this);
     }
  
-    async retrieveQuiz(e){
+    async retrieveQuiz(e){ // why is this function async? Are you awaiting anything?
          e.preventDefault()
+         // PLEASE DO NOT UPDATE STATE DIRECTLY. USE SETSTATE!!
         this.state.questions = this.state.questions * this.state.players
        this.props.getQuizData(this.state);
         this.props.history.push('/questions');  
@@ -30,9 +31,22 @@ class Play extends React.Component {
         e.preventDefault();
         e.target.reset();
 
-        this.setState({state: this.state})
+        // DO NOT DIRECTLY ACCESS THIS.STATE WITHIN A SETSTATE!!! 
+        // What are you acheiving with this setState? If you mean to reset it to how it was on inital mount,
+        // you need to explicitly set that data again.
+        // const initState = { players: "2", questions: "1", etc.. }
+        // this.setState(initState)
+        // 
+        this.setState({state: this.state}) 
+        // ^ this is making a new key in state, alse called state.
+        // The value is a pot luck object which could have been altered between this line being executed
+        // and the values actually being updated.
+
+        // NO! DO NOT DIRECTLY UPDATE STATE! USE SETSTATE!
         this.state.userInput = ""
 
+        // What is the need for this? If you are successfully resetting your state and you have controlled components,
+        // the form will effectively be reset.
         document.getElementById('quizform').reset();  
     }
 
@@ -58,6 +72,7 @@ class Play extends React.Component {
                     </select>
                 <label htmlFor="questions">No. of Questions</label>
                 <select name="questions" value={this.state.questions} onChange={this.handleInput}>
+                    {/* Could this be tidied with a loop? */}
                         <option value="1">1 Question</option>
                         <option value="2">2 Questions</option>
                         <option value="3">3 Questions</option>
@@ -71,6 +86,9 @@ class Play extends React.Component {
                 </select>
                     <label htmlFor="category">Category</label>
                     <select name="category" value={this.state.category} onChange={this.handleInput}>
+                        {/* Could this be tidied by iterating over a collection? */}
+                        {/* const opts = [{name: "books", id: 10}, {name: "politics, id: 24"}, etc.] */}
+                        {/* opts.map(o => <option value={o.id}>{o.name}</option>) */}
                         <option value="9">General Knowledge</option>
                         <option value="10">Books</option>
                         <option value="11">Film</option>
@@ -109,11 +127,11 @@ class Play extends React.Component {
     }
 }
 
+// Great! I think Redux was a good move in this project
 const mSTP = state => ({
     data: state.data,
     players: state.players,
     score: state.score,
     currentQuestion: state.currentQuestion
-
 })
 export default withRouter (connect(mSTP, { getQuizData })(Play));
