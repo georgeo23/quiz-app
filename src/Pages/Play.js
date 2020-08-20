@@ -32,7 +32,10 @@ class Play extends React.Component {
 
     onResetClick(e) { 
         e.preventDefault();
-        document.getElementById('quizform').reset();  
+        this.setState({players: "2",
+        questions: "1",
+        category: "9",
+        difficulty: "easy"})
     }
 
      handleInput(e) {
