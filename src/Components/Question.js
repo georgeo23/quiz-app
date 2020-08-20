@@ -95,7 +95,6 @@ class Question extends Component {
                 <h1 id="questionCounter">Q{this.props.currentQuestionID+1}/{this.props.data.length}</h1>
                 <h1 id="playersCounter">{this.state.currentPlayer} of {this.props.noOfPlayers}</h1>
                 <h1 id="questionText" dangerouslySetInnerHTML={{ __html: this.props.question.question }}></h1>
-                {/* Answer Buttons */}
                 <div id="answerButtons">
                     <button id="answerBtn1" dangerouslySetInnerHTML={{ __html: shuffledAnswer[0] }} onClick={() => this.scoreChecker(shuffledAnswer[0], this.state.currentPlayer)} ></button> 
                     <button id="answerBtn2" dangerouslySetInnerHTML={{ __html: shuffledAnswer[1] }} onClick={() => this.scoreChecker(shuffledAnswer[1],  this.state.currentPlayer)} ></button> 
