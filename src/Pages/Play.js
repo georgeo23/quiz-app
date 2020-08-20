@@ -15,11 +15,9 @@ class Play extends React.Component {
             players: "2",
             questions: "1",
             category: "9",
-            difficulty: "easy",
-            userInput: ""
+            difficulty: "easy"
         };
         this.handleInput = this.handleInput.bind(this);
-        this.onResetClick = this.onResetClick.bind(this);
         this.retrieveQuiz = this.retrieveQuiz.bind(this);
         this.onResetClick = this.onResetClick.bind(this);
 
@@ -31,22 +29,9 @@ class Play extends React.Component {
         this.props.getQuizData(this.state);
         this.props.history.push('/questions');  
     }
-    
-     onResetClick(e) {
+
+    onResetClick(e) { 
         e.preventDefault();
-        e.target.reset();
-
-        this.setState({state: this.state})
-        this.state.userInput = ""
-
-        document.getElementById('quizform').reset();  
-    }
-
-    onResetClick(e) { //WE DONT HAVE A REST BUTTON ANYMORE
-        e.preventDefault();
-        // e.target.reset();
-        // this.setState({state: this.state})
-        // this.state.userInput = ""
         document.getElementById('quizform').reset();  
     }
 
@@ -121,7 +106,6 @@ class Play extends React.Component {
                     <br/>
                     <button id="resetBtn" onClick={this.onResetClick}>Reset</button>
                     <input id="submitBtn" type="submit" value="Load Quiz"></input>
-                    {/* <button id="reset" onClick={this.onResetClick}>Reset</button> */}
                 </form>
              
             </div>
@@ -129,11 +113,4 @@ class Play extends React.Component {
     }
 }
 
-const mSTP = state => ({
-    data: state.data,
-    players: state.players,
-    score: state.score,
-    currentQuestion: state.currentQuestion
-
-})
-export default withRouter (connect(mSTP, { getQuizData })(Play));
+export default withRouter (connect(null, { getQuizData })(Play));

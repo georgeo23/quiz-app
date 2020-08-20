@@ -9,8 +9,6 @@ class  Result extends Component {
        
      drawResults = () => {
 
-        console.log(this.props.noOfPlayers)
-        console.log(this.props.players)
         let noOfPlayers = this.props.noOfPlayers
         if (noOfPlayers == 2) {
         return (

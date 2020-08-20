@@ -20,9 +20,4 @@ const mSTP = state => ({
     currentQuestionID: state.currentQuestionID
 })
 
-export const mDTP = dispatch => ({
-    addScore: () => dispatch({type: 'ADD_SCORE', payload: 1}),
-    nextQuestion: () => dispatch({type: 'NEXT_QUESTION'})    
-})
-
-export default connect(mSTP, mDTP) (QuestionPage);
+export default connect(mSTP) (QuestionPage);

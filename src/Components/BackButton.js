@@ -4,7 +4,7 @@ import '../Styles/BackButton.css'
 
 function BackButton(props) {
     return (
-        <button onClick={props.history.goBack}>Back</button>
+        <button id="back" onClick={props.history.goBack}>Back</button>
     )
 }
 export default withRouter(BackButton)
