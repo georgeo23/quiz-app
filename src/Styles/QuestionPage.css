@@ -1,5 +1,5 @@
 #questionCounter {
-    font-size: 30px;
+    font-size: 40px;
     /* position: fixed; */
     top: 15px;
     left:15px;
@@ -9,9 +9,9 @@
 }
 
 #playersCounter {
-    font-size: 30px;
+    font-size: 40px;
     letter-spacing: 0.1em;
-    font-weight: 100;
+    font-weight: 400;
 
 
 }
@@ -25,6 +25,7 @@
 
 #answerButtons {
     margin-bottom: 0;
+    margin-top: 80px;
 }
 
 
@@ -38,6 +39,7 @@
     outline: none;
     color: #ffffff;
     font-size: 20px;
+    margin-top: 70px;
     letter-spacing: 0.1em;
     /* text-transform: uppercase; */
     margin: auto 10px;
