@@ -1,4 +1,4 @@
-# Quiz App
+# Welcome to Quizux
 
 Quiz App made using React and Redux
 
@@ -11,4 +11,4 @@ Then run `npm start`
 
 ## Contributers
 
-Contributers: Anna, Cindy George and Jamie
+Contributers: Anna, Cindy, George and Jamie
