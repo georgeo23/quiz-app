@@ -10,7 +10,7 @@ class Welcome extends Component {
         return (
             <div>
 
-                <h1>Welcome to Quiz App!</h1>
+                <h1>Welcome to Quizux!</h1>
                 <Link to='/play' className='welcomebtn'>Play</Link>
                 <br/>
                 <Link to='/howto' className="welcomebtn">How To Play</Link>
